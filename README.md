@@ -1,28 +1,30 @@
-# Sidesong Spotify
+# React + TypeScript + Vite
 
-Welcome to Sidesong Spotify! This project is designed to showcase a list of your most recent and frequently played songs from your Spotify account. Using a token, this application provides an interactive and personalized experience for Spotify users.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- **Token-Based Authentication:** Securely access your Spotify data using token authentication.
-- **Dynamic User Interface:** Enjoy an interactive and responsive interface built with TypeScript and React.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Technologies Used
+## Expanding the ESLint configuration
 
-- **TypeScript:** Used for type-checking and improving the maintainability of the code.
-- **React:** Utilized for building a dynamic and efficient user interface.
-- **Spotify API:** Integrated to fetch user-specific data and enhance the user experience.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Getting Started
+- Configure the top-level `parserOptions` property like this:
 
-As Sidesong Spotify is currently under active development, it is not yet available for public access. We are excited to bring you a unique way to explore your Spotify listening history. Stay tuned for updates on the official launch!
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-In the meantime, feel free to check out the source code and contribute to the project.
-
-## Contributing
-
-Contributions to Sidesong Spotify are welcome! If you have ideas, feedback, or would like to contribute code, please feel free to submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE), allowing you to use, modify, and distribute the code with appropriate attribution.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
